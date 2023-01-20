@@ -1,4 +1,4 @@
-package example.spout;
+package example.topology.spout;
 
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.OutputCollector;

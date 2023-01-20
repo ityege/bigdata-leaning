@@ -1,4 +1,4 @@
-package example.bolt;
+package example.topology.bolt;
 
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;

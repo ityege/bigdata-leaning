@@ -1,8 +1,8 @@
-package example.wordcounttopology;
+package example.topology.wordcounttopology;
 
-import example.bolt.SplitSentence;
-import example.bolt.WordCountBolt;
-import example.spout.RandomSentenceSpout;
+import example.topology.bolt.SplitSentence;
+import example.topology.bolt.WordCountBolt;
+import example.topology.spout.RandomSentenceSpout;
 import org.apache.storm.topology.ConfigurableTopology;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
