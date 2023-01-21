@@ -1,5 +1,6 @@
 package example.topology.statefulwindowingtopology;
 
+import example.topology.bolt.PrinterBolt;
 import example.topology.spout.RandomIntegerSpout;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;

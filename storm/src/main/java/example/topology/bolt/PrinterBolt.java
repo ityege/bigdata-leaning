@@ -1,4 +1,4 @@
-package example.topology.statefulwindowingtopology;
+package example.topology.bolt;
 
 import org.apache.storm.topology.BasicOutputCollector;
 import org.apache.storm.topology.OutputFieldsDeclarer;
