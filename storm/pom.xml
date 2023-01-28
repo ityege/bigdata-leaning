@@ -12,6 +12,8 @@
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-core</artifactId>
             <version>2.4.0</version>
+<!--            storm依赖本地运行需要,打包运行要去掉-->
+<!--            <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.kafka</groupId>

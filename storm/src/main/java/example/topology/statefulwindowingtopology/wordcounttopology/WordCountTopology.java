@@ -1,4 +1,4 @@
-package example.topology.wordcounttopology;
+package example.topology.statefulwindowingtopology.wordcounttopology;
 
 import example.topology.bolt.SplitSentence;
 import example.topology.bolt.WordCountBolt;
