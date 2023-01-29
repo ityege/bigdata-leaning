@@ -40,7 +40,7 @@ public class RandomSentenceSpout extends BaseRichSpout {
                 "i am at two with nature"
         };
         final String sentence = sentences[random.nextInt(sentences.length)];
-        System.err.println(sentence);
+//        System.err.println(sentence);
         collector.emit(new Values(sentence));
     }
 }
