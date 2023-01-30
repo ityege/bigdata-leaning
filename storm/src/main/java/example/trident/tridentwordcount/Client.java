@@ -1,4 +1,4 @@
-package example.trident;
+package example.trident.tridentwordcount;
 
 import org.apache.storm.utils.DRPCClient;
 import org.apache.storm.utils.Utils;
