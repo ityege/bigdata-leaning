@@ -42,39 +42,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class EsTestUtil {
 
-    /**
-     * Generates a test tuple.
-     * @param source the source of the tuple
-     * @param index the index of the tuple
-     * @param type the type of the tuple
-     * @param id the id of the tuple
-     * @return the generated tuple
-     */
-    public static Tuple generateTestTuple(final String source,
-            final String index,
-            final String type,
-            final String id) {
-        TopologyBuilder builder = new TopologyBuilder();
-        GeneralTopologyContext topologyContext = new GeneralTopologyContext(
-                builder.createTopology(),
-                new Config(),
-                new HashMap<>(),
-                new HashMap<>(),
-                new HashMap<>(),
-                "") {
-            @Override
-            public Fields getComponentOutputFields(final String componentId,
-                    final String streamId) {
-                return new Fields("source", "index", "type", "id");
-            }
-        };
-        return new TupleImpl(topologyContext,
-                new Values(source, index, type, id),
-                source,
-                1,
-                "");
 
-    }
 
     /**
      * Generates a new tuple mapper.
@@ -115,11 +83,5 @@ public final class EsTestUtil {
         } catch (InterruptedException ex) {
             //expected
         }
-    }
-
-    /**
-     * Utility constructor.
-     */
-    private EsTestUtil() {
     }
 }
