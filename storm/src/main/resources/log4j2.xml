@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration monitorInterval="60">
+<Configuration status="WARN">
+    <properties>
+        <Property name="console-pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%level] %logger{36} - %msg%n</Property>
+        <property name="error-file">log4j2.log</property>
+    </properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5p %c{1.} - %msg%n"/>
+            <PatternLayout pattern="${console-pattern}" />
         </Console>
-    </Appenders>
-    <Loggers>
-        <Logger name="org.apache.zookeeper" level="WARN"/>
-        <Root level="error">
-            <AppenderRef ref="Console"/>
-        </Root>
-    </Loggers>
-</configuration>
 
+        <File name="FileAppender" fileName="${error-file}" >
+            <PatternLayout pattern="${console-pattern}" />
+        </File>
+
+        <Async name="AsyncAppender">
+            <AppenderRef ref="FileAppender"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <appenderRef ref="AsyncAppender" />
+        </Root>
+        <Logger name="AsyncFileLogger" level="error" additivity="false">
+            <appenderRef ref="AsyncAppender" />
+        </Logger>
+    </Loggers>
+
+</Configuration>
