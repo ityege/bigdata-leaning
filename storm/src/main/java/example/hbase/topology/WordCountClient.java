@@ -30,9 +30,6 @@ public class WordCountClient {
 
     public static void main(String[] args) throws Exception {
         Configuration config = HBaseConfiguration.create();
-        if (args.length > 0) {
-            config.set("hbase.rootdir", args[0]);
-        }
 
         Table table = ConnectionFactory.createConnection(config).getTable(TableName.valueOf("WordCount"));
 

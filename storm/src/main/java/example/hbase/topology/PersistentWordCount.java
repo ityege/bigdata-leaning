@@ -14,16 +14,11 @@ package example.hbase.topology;
 
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
-import org.apache.storm.StormSubmitter;
 import org.apache.storm.hbase.bolt.HBaseBolt;
 import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
-import org.apache.storm.hbase.security.HBaseSecurityUtil;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.utils.Utils;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class PersistentWordCount {
