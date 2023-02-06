@@ -18,8 +18,6 @@ import org.apache.storm.topology.IBasicBolt;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.math.BigInteger;
 import java.util.Map;
@@ -29,7 +27,6 @@ import static org.apache.storm.utils.Utils.tuple;
 
 public class TotalWordCounter implements IBasicBolt {
 
-    private static final Logger LOG = LoggerFactory.getLogger(TotalWordCounter.class);
     private static final Random RANDOM = new Random();
     private BigInteger total = BigInteger.ZERO;
 
@@ -47,13 +44,13 @@ public class TotalWordCounter implements IBasicBolt {
         collector.emit(tuple(total.toString()));
         //prints the total with low probability.
         if (RANDOM.nextInt(1000) > 995) {
-            LOG.info("Running total = " + total);
+            System.err.println("Running total = " + total);
         }
     }
 
     @Override
     public void cleanup() {
-        LOG.info("Final total = " + total);
+        System.err.println("Final total = " + total);
     }
 
     @Override
