@@ -63,6 +63,17 @@
             <artifactId>jna</artifactId>
             <version>4.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-hdfs</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>javax.el</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>2.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
