@@ -1,4 +1,4 @@
-package cn.ityege.hadoop.mapreduce.topngroup;
+package cn.ityege.hadoop.mapreduce.toponegroup;
 
 import cn.ityege.hadoop.mapreduce.beans.CovidBean;
 import org.apache.hadoop.io.NullWritable;
@@ -6,10 +6,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-/**
- * @description:
- * @author: Itcast
- */
+
 public class CovidTopOneReducer extends Reducer<CovidBean, NullWritable,CovidBean,NullWritable> {
     @Override
     protected void reduce(CovidBean key, Iterable<NullWritable> values, Context context) throws IOException, InterruptedException {

@@ -1,4 +1,4 @@
-package cn.ityege.hadoop.mapreduce.topngroup;
+package cn.ityege.hadoop.mapreduce.toponegroup;
 
 import cn.ityege.hadoop.mapreduce.beans.CovidBean;
 import org.apache.hadoop.io.LongWritable;

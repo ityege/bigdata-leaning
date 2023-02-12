@@ -1,13 +1,10 @@
-package cn.ityege.hadoop.mapreduce.topngroup;
+package cn.ityege.hadoop.mapreduce.toponegroup;
 
 import cn.ityege.hadoop.mapreduce.beans.CovidBean;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
-/**
- * @description: todo MapReduce中自定义分组的类
- * @author: Itcast
- */
+
 public class CovidGroupingComparator extends WritableComparator {
 
     protected CovidGroupingComparator(){
