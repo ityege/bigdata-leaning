@@ -1,12 +1,12 @@
 package cn.ityege.hadoop.mapreduce.beans;
 
-import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class CovidCountBean implements Writable {
+public class CovidCountBean implements WritableComparable<CovidCountBean> {
     private long cases;//确诊病例数
     private long deaths;//死亡病例数
 
@@ -57,4 +57,13 @@ public class CovidCountBean implements Writable {
     public String toString() {
         return cases+"\t"+deaths;
     }
+
+    /**
+     * 排序比较器  本业务中根据确诊案例数倒序排序
+     */
+    @Override
+    public int compareTo(CovidCountBean o) {
+        return this.cases - o.getCases()> 0 ? -1:(this.cases - o.getCases() < 0 ? 1 : 0);
+    }
+
 }
