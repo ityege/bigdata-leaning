@@ -15,14 +15,14 @@ object SparkWordCount {
       .setMaster("local[*]")
       .setAppName("SparkWordCount")
     // TODO: 构建SparkContext上下文实例对象，读取数据和调度Job执行
-    val sc: SparkContext = new SparkContext(sparkConf)
+    val sparkContext: SparkContext = new SparkContext(sparkConf)
     // 第一步、读取数据
     // 封装到RDD集合，认为列表List
-    val inputRDD: RDD[String] = sc.textFile("data\\input\\wordcount.txt")
+    val inputRDD: RDD[String] = sparkContext.textFile("data\\input\\wordcount.txt")
     // 第二步、处理数据
     // 调用RDD中函数，认为调用列表中的函数
     // a. 每行数据分割为单词
-    val wordsRDD = inputRDD.flatMap(line => line.split("\\s+"))
+    val wordsRDD:RDD[String] = inputRDD.flatMap(line => line.split("\\s+"))
     // b. 转换为二元组，表示每个单词出现一次
     val tuplesRDD: RDD[(String, Int)] = wordsRDD.map(word => (word, 1))
     // c. 按照Key分组聚合
@@ -34,6 +34,6 @@ object SparkWordCount {
     // 为了测试，线程休眠，查看WEB UI界面
     Thread.sleep(10000000)
     // TODO：应用程序运行接收，关闭资源
-    sc.stop()
+    sparkContext.stop()
   }
 }
