@@ -3,3 +3,4 @@
 target
 *.log
 data/output
+dependency-reduced-pom.xml

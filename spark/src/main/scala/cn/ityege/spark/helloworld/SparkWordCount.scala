@@ -12,13 +12,13 @@ object SparkWordCount {
   def main(args: Array[String]): Unit = {
     // 创建SparkConf对象，设置应用的配置信息，比如应用名称和应用运行模式
     val sparkConf: SparkConf = new SparkConf()
-      .setMaster("local[*]")
+//      .setMaster("local[*]")
       .setAppName("SparkWordCount")
     // TODO: 构建SparkContext上下文实例对象，读取数据和调度Job执行
     val sparkContext: SparkContext = new SparkContext(sparkConf)
     // 第一步、读取数据
     // 封装到RDD集合，认为列表List
-    val inputRDD: RDD[String] = sparkContext.textFile("data\\input\\wordcount.txt")
+    val inputRDD: RDD[String] = sparkContext.textFile("/input/wordcount.txt")
     // 第二步、处理数据
     // 调用RDD中函数，认为调用列表中的函数
     // a. 每行数据分割为单词
@@ -30,9 +30,9 @@ object SparkWordCount {
     // 第三步、输出数据
     wordCountsRDD.foreach(println)
     // 保存到为存储系统，比如HDFS
-    wordCountsRDD.saveAsTextFile(s"data/output/swc-output-${System.currentTimeMillis()}")
+    wordCountsRDD.saveAsTextFile(s"/output/wordcount/swc-output-${System.currentTimeMillis()}")
     // 为了测试，线程休眠，查看WEB UI界面
-    Thread.sleep(10000000)
+//    Thread.sleep(10000000)
     // TODO：应用程序运行接收，关闭资源
     sparkContext.stop()
   }
